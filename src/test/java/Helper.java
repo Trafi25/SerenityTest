@@ -5,6 +5,7 @@ import static io.restassured.RestAssured.given;
 public class Helper {
 
     private static final String API_KEY=  "x-api-key";
+    private static final String AI_KEY=  "x-api";
     private static final String OBJ_KEY=  "DEMO-API-KEY";
 
     public static Response GetResourse(String Response){
