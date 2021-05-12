@@ -18,6 +18,10 @@ public class Crud_test {
     private static final String BASE_URI = "https://api.thecatapi.com";
     private static final int STATUS_CODE = 401;
 
+    @Before
+    public void setUp() {
+        RestAssured.baseURI = BASE_URI;
+    }
 
 
     @Test
@@ -31,10 +35,7 @@ public class Crud_test {
                 log().all();
     }
 
-    @Before
-    public void setUp() {
-        RestAssured.baseURI = BASE_URI;
-    }
+
 
     @Test
     @Title("Test get user")
@@ -44,7 +45,7 @@ public class Crud_test {
                 .then()
                 .statusCode(STATUS_CODE_OK)
                 .log().body();
-        assertThat(STATUS_CODE_OK, equalTo(STATUS_CODE_OK));
+
     }
 
 
@@ -53,7 +54,7 @@ public class Crud_test {
 
         Helper.GetResourse("/v2/categories")
                 .then()
-                .statusCode(STATUS_NOT_FOUND)
+                .statusCode(STATUS_CODE_OK )
                 .log().body();
 
     }
